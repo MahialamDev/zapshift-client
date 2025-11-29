@@ -1,0 +1,8 @@
+.mySwiper .swiper-slide {
+  transition: all 0.3s ease;
+}
+
+.mySwiper .swiper-slide-active {
+  transform: translateY(-40px); /* center slide slightly up */
+}
+
