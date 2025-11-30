@@ -21,11 +21,12 @@ const MyParcels = () => {
     },
   });
 
+  console.log(parcels)
+
   // console.log(parcels);
 
   // Stripe my payment 
   const handlePayment = async (parcel) => {
-    setLoading(true)
     const paymentInfo = {
       parcelId: parcel._id,
       parcelName: parcel.parcelName,
@@ -34,7 +35,7 @@ const MyParcels = () => {
     }
 
     const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
-    setLoading(false)
+
     window.location.assign(res.data.url);
 
   }
@@ -91,8 +92,13 @@ const MyParcels = () => {
               <th>{parcel.senderName}</th>
               <th>{parcel.cost}</th>
               <th>
-                 <button className="btn hover:bg-primary border-2 border-primary px-4 py-2 text-black "  onClick={()=> handlePayment(parcel)}>{loading? <span className="loading loading-spinner text-accent"></span> : <span>Pay</span>}</button>
+                {
+                  parcel?.paymentStatus === 'paid' ? <span className="text-primary cursor-not-allowed">Paid</span> : <button className="btn hover:bg-primary border-2 border-primary px-4 py-2 text-black "  onClick={()=> handlePayment(parcel)}>{loading? <span className="loading loading-spinner text-accent"></span> : <span>Pay</span>}</button>
+                 }
+                
+                {/* <button className="btn hover:bg-primary border-2 border-primary px-4 py-2 text-black "  onClick={()=> handlePayment(parcel)}>{loading? <span className="loading loading-spinner text-accent"></span> : <span>Pay</span>}</button> */}
                       {/* <Link to={`/dashboard/payment/${parcel._id}`}>
+
                           <PrimaryBtn>Pay</PrimaryBtn>
                       </Link> */}
               </th>

@@ -4,7 +4,7 @@ import MyContainer from '../../Layouts/MyContainer';
 import { useForm, useWatch } from 'react-hook-form';
 import PrimaryBtn from '../../Components/UI/Buttons/PrimaryBtn';
 import useAuth from '../../Hooks/useAuth';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
@@ -13,6 +13,7 @@ const SendParcel = () => {
     const { register, handleSubmit, control, } = useForm();
     const axiosSecure = useAxiosSecure();
     const serviceCenters = useLoaderData();
+    const navigate = useNavigate()
     // console.log(serviceCenters) 
     const senderRegion = useWatch({control, name: 'senderRegion'});
     const reciverRegion = useWatch({control, name: 'reciverRegion'});
@@ -65,13 +66,18 @@ const SendParcel = () => {
             if (result.isConfirmed) {
                 data.cost = cost;
                 axiosSecure.post('/parcels', data)
-                    .then(() => {
-                        
-                        Swal.fire({
-                    title: "Confirm Pay",
-                    text: "Your parcel is confirmed.",
+                    .then((res) => {
+                        if (res.data.insertedId) {
+                             navigate('/dashboard/my-parcels')
+                             Swal.fire({
+                    title: "Parcel is created. Please Pay!",
+                    text: `You have to pay ${data.cost}`,
                     icon: "success"
-                    });
+                             });
+                            
+                           
+                        }
+                       
                     })
                     .catch(err=> console.log(err))
 

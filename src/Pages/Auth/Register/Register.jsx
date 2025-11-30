@@ -9,10 +9,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const Register = () => {
   const { register, handleSubmit, formState: {errors} } = useForm();
-  const { registerUserWithEmail,  updateUserProfile, setLoading, loading, logoutUser, user} = useAuth();
+  const { registerUserWithEmail, updateUserProfile, setLoading, loading, logoutUser, user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   // const fileInputRef = useRef();
   console.log()
 
@@ -40,7 +42,22 @@ const Register = () => {
        
         axios.post(img_api_url, formData)
           .then(res => {
-            console.log('after img upload', res.data.data.url)
+             const photoURL = res.data.data.url
+
+
+            const userInfo = {
+              displayName: data.name,
+              email: data.email,
+              photoURL: photoURL
+            }
+
+            // create user in database
+            axiosSecure.post('/users', userInfo)
+              .then(res => {
+                if (res.data.insertedId) {
+                console.log("user created in database")
+              }
+            })
 
             // Update Profile
             const userProfile = {

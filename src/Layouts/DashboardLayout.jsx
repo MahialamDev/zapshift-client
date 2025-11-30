@@ -1,7 +1,8 @@
 import React from 'react';
 import { CiDeliveryTruck } from 'react-icons/ci';
 import { Link, Outlet } from 'react-router';
-
+import { FaRegCreditCard } from "react-icons/fa6";
+import { MdOutlineElectricBike } from "react-icons/md";
 const DashboardLayout = () => {
     return (
         <div className="drawer lg:drawer-open">
@@ -42,6 +43,23 @@ const DashboardLayout = () => {
             {/* Home icon */}
             <CiDeliveryTruck className=' text-[18px] stroke-[0.8]' />
             <span className="is-drawer-close:hidden">My Parcels</span>
+          </Link>
+              </li>
+              
+        {/* My Parcel */}
+        <li>
+          <Link to='/dashboard/payment-history' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Payments History">
+            {/* Home icon */}
+                  <FaRegCreditCard className=' text-[18px] stroke-[0.8]' />
+            <span className="is-drawer-close:hidden">Payment History</span>
+          </Link>
+        </li>
+        {/* Riders */}
+        <li>
+          <Link to='/dashboard/riders' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Riders">
+            {/* Riders icon */}
+                  <MdOutlineElectricBike className='text-[18px] ' />
+            <span className="is-drawer-close:hidden">Riders</span>
           </Link>
         </li>
 
