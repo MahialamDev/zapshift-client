@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router";
 
 const MyParcels = () => {
-  const { user, loading, setLoading } = useAuth();
+  const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
   // Tex stak querry
   const { data: parcels = [], refetch } = useQuery({

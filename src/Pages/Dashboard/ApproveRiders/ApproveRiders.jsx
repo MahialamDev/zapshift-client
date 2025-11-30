@@ -1,5 +1,4 @@
 import React from "react";
-import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaRegTrashAlt, FaUserTimes } from "react-icons/fa";
@@ -8,10 +7,10 @@ import { MdContentPasteSearch } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const ApproveRiders = () => {
-  const { user } = useAuth();
+
   const axiosSecure = useAxiosSecure();
   const { data: riders = [], refetch } = useQuery({
-    queryKey: ["riders", user],
+    queryKey: ["riders", 'pending'],
     queryFn: async () => {
       const res = await axiosSecure("/riders");
       return res.data;
@@ -25,7 +24,7 @@ const ApproveRiders = () => {
                 refetch();
                 if (res.data.modifiedCount) {
                      Swal.fire({
-                    title: "Rider Status Updated!",
+                    title: `Rider has been ${updateInfo.status}`,
                     icon: "success"
                              });
                 } else {
@@ -43,14 +42,16 @@ const ApproveRiders = () => {
     
     const handleApproval = rider => {
         const updateInfo = {
-            status: 'approved'
+            status: 'approved',
+            email: rider.email
         }; 
         updateRiderStatus(updateInfo, rider)
     }
 
     const handleReject = rider => {
         const updateInfo = {
-            status: 'reject'
+            status: 'rejected',
+             email: rider.email
         }; 
         updateRiderStatus(updateInfo, rider)
     }
@@ -58,7 +59,7 @@ const ApproveRiders = () => {
   return (
     <div>
       <h1 className="text-2xl md:text-4xl font-semibold py-2 my-4 text-center">
-        Riders History {riders.length}
+        Riders Pending Approval {riders.length}
       </h1>
 
       <div className="overflow-x-auto">
