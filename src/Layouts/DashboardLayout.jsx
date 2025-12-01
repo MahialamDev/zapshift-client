@@ -2,7 +2,7 @@ import React from "react";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { Link, Outlet } from "react-router";
 import { FaRegCreditCard } from "react-icons/fa6";
-import { MdOutlineElectricBike } from "react-icons/md";
+import { MdOutlineElectricBike, MdSwapCalls } from "react-icons/md";
 import { FaUserShield } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
 
@@ -129,6 +129,17 @@ const DashboardLayout = () => {
                 
                 <FaUserShield className="text-[18px]" />
                 <span className="is-drawer-close:hidden">Users Managment</span>
+              </Link>
+            </li>
+              <li>
+              <Link
+                to="/dashboard/all-payments"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="All Payments"
+              >
+                
+                <MdSwapCalls className="text-[18px]" />
+                <span className="is-drawer-close:hidden">All Payments</span>
               </Link>
             </li>
             

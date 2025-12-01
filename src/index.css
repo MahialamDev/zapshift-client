@@ -3,25 +3,46 @@
 
 @plugin "daisyui";
 
+/* ============================= */
+/* Light Theme Configuration     */
+/* ============================= */
 @plugin "daisyui/theme" {
   name: "light";
 
-  --color-primary: #caeb66;
-  --color-secondary: #03373d;
-  --color-base-200: WHITE; /*BOX coLOR*/
-  --color-base-100: #EAECED; /* light background */
-  --color-content: black;    /* dark text */
+  /* Primary Color → Main accent color, buttons, links etc. */
+  --color-primary: #caeb66;  /* Light green, main action elements (buttons, links, highlights) */
+
+  /* Secondary Color → Secondary accent, hover bg, badges etc. */
+  --color-secondary: #03373d; /* Dark teal, used for secondary highlights, hover backgrounds, subtle accents */
+
+  /* Base Colors */
+  --color-base-100: #EAECED;  /* Page / card background (light grey) */
+  --color-base-200: #FFFFFF;  /* Box / container background (pure white), used for cards, tables, modals */
+
+  /* Content Colors */
+  --color-content: black;     /* Default text color on light background, readable on base-100/base-200 */
 }
 
+/* ============================= */
+/* Dark Theme Configuration      */
+/* ============================= */
 @plugin "daisyui/theme" {
   name: "dark";
 
-  --color-primary: #caeb66;
-  --color-secondary: #3A8F96;
-  --color-base-100: #000000;  /* dark background */
-  --color-base-200: black; /*BOX coLOR*/
-  --color-base-content: #FFFFFF;     /* white text */
+  /* Primary Color → Main accent color, buttons, links etc. */
+  --color-primary: #caeb66;  /* Same light green for consistency across dark mode */
+
+  /* Secondary Color → Secondary accent, hover bg, badges etc. */
+  --color-secondary: #3A8F96; /* Teal-ish, used for secondary highlights, hover effects */
+
+  /* Base Colors */
+  --color-base-100: #000000;  /* Main page / container background (dark) */
+  --color-base-200: #111111;  /* Box background, slightly lighter than base-100, used for cards, tables, modals */
+
+  /* Content Colors */
+  --color-base-content: #FFFFFF; /* Default text color on dark background, readable on base-100/base-200 */
 }
+
 
 
 /* body{

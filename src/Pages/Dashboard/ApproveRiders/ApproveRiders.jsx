@@ -57,64 +57,91 @@ const ApproveRiders = () => {
     }
 
   return (
-    <div>
-      <h1 className="text-2xl md:text-4xl font-semibold py-2 my-4 text-center">
-        Riders Pending Approval {riders.length}
-      </h1>
+    <div className="p-4">
+  {/* Header */}
+  <h1 className="text-2xl md:text-4xl font-semibold py-2 my-4 text-center text-base-content">
+    Riders Pending Approval ({riders.length})
+  </h1>
 
-      <div className="overflow-x-auto">
-        <table className="table table-zebra">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Nid</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {riders.map((rider, index) => (
-              <tr key={rider._id}>
-                <th>{index + 1}</th>
-                <td>{rider.name}</td>
-                <td>{rider.email}</td>
-                <td>{rider.nid}</td>
-                <td
-                  className={`${
-                    rider.status === "approved"
-                      ? "text-green-600"
-                      : "text-red-600"
-                  }`}
-                >
-                  {rider.status}
-                </td>
-                    <td className="space-x-4">
-                        {/* details */}
-                  <button className="btn hover:bg-primary">
-                    <MdContentPasteSearch />
-                        </button>
-                        {/* Approve */}
-                  <button onClick={()=>handleApproval(rider)} className="btn hover:bg-primary">
-                    <FaUserCheck />
-                        </button>
-                        {/* Reject */}
-                  <button onClick={()=>{handleReject(rider)}} className="btn hover:bg-primary">
-                    <FaUserTimes />
-                        </button>
-                        {/* Details */}
-                  <button className="btn hover:bg-primary">
-                    <FaRegTrashAlt />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div className="overflow-x-auto rounded-lg shadow-lg border border-base-200">
+    <table className="table-auto w-full border-collapse ">
+      {/* Head */}
+      <thead className="bg-primary text-white">
+        <tr>
+          <th className="py-3 px-4 text-left">#</th>
+          <th className="py-3 px-4 text-left">Name</th>
+          <th className="py-3 px-4 text-left">Email</th>
+          <th className="py-3 px-4 text-left">NID</th>
+          <th className="py-3 px-4 text-left">Status</th>
+          <th className="py-3 px-4 text-left">Actions</th>
+        </tr>
+      </thead>
+
+      {/* Body */}
+      <tbody className="bg-base-100">
+        {riders.map((rider, index) => (
+          <tr
+            key={rider._id}
+            className="border-b border-base-200 hover:bg-secondary/60 hover:text-white transition group"
+          >
+            {/* Sl No */}
+            <td className="py-3 px-4 group-hover:text-white">{index + 1}</td>
+
+            {/* Name */}
+            <td className="py-3 px-4 font-medium group-hover:text-white">{rider.name}</td>
+
+            {/* Email */}
+            <td className="py-3 px-4 group-hover:text-white">{rider.email}</td>
+
+            {/* NID */}
+            <td className="py-3 px-4 font-mono group-hover:text-white">{rider.nid}</td>
+
+            {/* Status */}
+            <td
+              className={`py-3 px-4 font-semibold ${
+                rider.status === "approved"
+                  ? "text-green-600 group-hover:text-white"
+                  : "text-red-600 group-hover:text-white"
+              }`}
+            >
+              {rider.status}
+            </td>
+
+            {/* Actions */}
+            <td className="py-3 px-4 space-x-2">
+              {/* Details */}
+              <button className="btn btn-sm hover:bg-primary hover:text-white transition">
+                <MdContentPasteSearch />
+              </button>
+
+              {/* Approve */}
+              <button
+                onClick={() => handleApproval(rider)}
+                className="btn btn-sm hover:bg-primary hover:text-white transition"
+              >
+                <FaUserCheck />
+              </button>
+
+              {/* Reject */}
+              <button
+                onClick={() => handleReject(rider)}
+                className="btn btn-sm hover:bg-primary hover:text-white transition"
+              >
+                <FaUserTimes />
+              </button>
+
+              {/* Delete */}
+              <button className="btn btn-sm hover:bg-primary hover:text-white transition">
+                <FaRegTrashAlt />
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
   );
 };
 

@@ -19,6 +19,7 @@ import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import ApproveRiders from "../Pages/Dashboard/ApproveRiders/ApproveRiders";
 import UserManagment from "../Pages/Dashboard/UsersManagment/UserManagment";
 import AdminRouter from "./AdminRouter";
+import AllPayments from "../Pages/Dashboard/AllPayments/AllPayments";
 
 
 const router = createBrowserRouter([
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
             {
                 path: 'users-managment',
                 element: <AdminRouter><UserManagment/></AdminRouter>
+            },
+            {
+                path: 'all-payments',
+                element: <AdminRouter><AllPayments /></AdminRouter>
             }
             
         ]
