@@ -23,11 +23,12 @@ const ApproveRiders = () => {
             .then(res => {
                 refetch();
                 if (res.data.modifiedCount) {
-                     Swal.fire({
+                    Swal.fire({
                     title: `Rider has been ${updateInfo.status}`,
                     icon: "success"
                              });
                 } else {
+                  console.log(res)
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
@@ -71,8 +72,10 @@ const ApproveRiders = () => {
           <th className="py-3 px-4 text-left">#</th>
           <th className="py-3 px-4 text-left">Name</th>
           <th className="py-3 px-4 text-left">Email</th>
+          <th className="py-3 px-4 text-left">District</th>
           <th className="py-3 px-4 text-left">NID</th>
           <th className="py-3 px-4 text-left">Status</th>
+          <th className="py-3 px-4 text-left">Work Status</th>
           <th className="py-3 px-4 text-left">Actions</th>
         </tr>
       </thead>
@@ -93,9 +96,13 @@ const ApproveRiders = () => {
             {/* Email */}
             <td className="py-3 px-4 group-hover:text-white">{rider.email}</td>
 
+            {/* district */}
+            <td className="py-3 px-4 group-hover:text-white">{rider.district}</td>
+
             {/* NID */}
             <td className="py-3 px-4 font-mono group-hover:text-white">{rider.nid}</td>
 
+            
             {/* Status */}
             <td
               className={`py-3 px-4 font-semibold ${
@@ -106,6 +113,10 @@ const ApproveRiders = () => {
             >
               {rider.status}
             </td>
+
+            
+            {/* Work Status */}
+            <td className="py-3 px-4 font-mono group-hover:text-white">{rider.workStatus || 'N/A'}</td>
 
             {/* Actions */}
             <td className="py-3 px-4 space-x-2">
@@ -138,7 +149,9 @@ const ApproveRiders = () => {
           </tr>
         ))}
       </tbody>
-    </table>
+        </table>
+        
+
   </div>
 </div>
 

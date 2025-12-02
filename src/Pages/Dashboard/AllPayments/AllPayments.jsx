@@ -1,11 +1,12 @@
 import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import LoadingAnimation from "../../../Components/Loader/LoadingAnimation/LoadingAnimation";
 
 const AllPayments = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: allPayments = [] } = useQuery({
+  const { data: allPayments = [], isLoading } = useQuery({
     queryKey: ["all-payments"],
     queryFn: async () => {
       const res = await axiosSecure.get("/all-payments");
@@ -14,6 +15,10 @@ const AllPayments = () => {
   });
 
   console.log("my Payments", allPayments);
+
+  if (isLoading) {
+    return <LoadingAnimation />
+  }
 
   return (
     <div className="p-4">

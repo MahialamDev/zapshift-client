@@ -1,7 +1,7 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
 import { Navigate, useLocation, } from 'react-router';
-import ScreenLoading from '../Components/Loader/ScreenLoading/ScreenLoading';
+import LoadingAnimation from '../Components/Loader/LoadingAnimation/LoadingAnimation';
 
 const PrivateRouter = ({ children }) => {
 
@@ -9,7 +9,7 @@ const PrivateRouter = ({ children }) => {
     const location = useLocation();
     // console.log('location', location)
 
-    if (loading) return <ScreenLoading />
+    if (loading) return <LoadingAnimation />
 
     // if (!user) return <Navigate state={location.pathname} to='/login' />;
 

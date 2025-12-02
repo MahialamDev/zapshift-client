@@ -20,13 +20,16 @@ import ApproveRiders from "../Pages/Dashboard/ApproveRiders/ApproveRiders";
 import UserManagment from "../Pages/Dashboard/UsersManagment/UserManagment";
 import AdminRouter from "./AdminRouter";
 import AllPayments from "../Pages/Dashboard/AllPayments/AllPayments";
+import LoadingAnimation from "../Components/Loader/LoadingAnimation/LoadingAnimation";
+import AssingRiders from "../Pages/Dashboard/AssingRiders/AssingRiders";
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         Component: MainLayout,
-        // errorElement: <Error404></Error404>,
+        errorElement: <Error404></Error404>,
+        hydrateFallbackElement: <LoadingAnimation />,
         children: [
             {
                 index: true,
@@ -93,6 +96,10 @@ const router = createBrowserRouter([
             {
                 path: 'approve-riders',
                 element: <AdminRouter><ApproveRiders /></AdminRouter>
+            },
+            {
+                path: 'assing-riders',
+                element: <AdminRouter><AssingRiders /></AdminRouter>
             },
             {
                 path: 'users-managment',

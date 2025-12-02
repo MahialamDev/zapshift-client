@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router";
 import { FaRegCreditCard } from "react-icons/fa6";
 import { MdOutlineElectricBike, MdSwapCalls } from "react-icons/md";
 import { FaUserShield } from "react-icons/fa";
+import { RiEBike2Line } from "react-icons/ri";
 import useRole from "../Hooks/useRole";
 
 const DashboardLayout = () => {
@@ -116,6 +117,17 @@ const DashboardLayout = () => {
               >
                 
                 <MdOutlineElectricBike className="text-[18px] " />
+                <span className="is-drawer-close:hidden">Riders</span>
+              </Link>
+              </li>
+              <li>
+              <Link
+                to="/dashboard/assing-riders"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Assing Riders"
+              >
+                <RiEBike2Line className="text-[18px] " />
+               
                 <span className="is-drawer-close:hidden">Riders</span>
               </Link>
               </li>

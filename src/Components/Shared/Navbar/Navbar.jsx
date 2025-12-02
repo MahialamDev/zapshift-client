@@ -57,9 +57,9 @@ const Navbar = () => {
   // console.log(user?.photoURL)
 
   return (
-    <MySection>
-      <MyContainer className="p-1">
-        <div className="navbar bg-base-200 shadow-sm max-w-7xl  rounded-xl">
+    <MySection >
+      <div className='px-4 md:px-6 max-w-7xl mx-auto ' >
+          <div className="navbar bg-base-200 shadow-sm rounded-xl">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -112,6 +112,8 @@ const Navbar = () => {
                   value="synthwave"
                 />
 
+                
+
                 {/* sun icon */}
                 <svg
                   className="swap-off h-7 w-7 fill-current"
@@ -157,7 +159,7 @@ const Navbar = () => {
               </div>
           </div>
         </div>
-      </MyContainer>
+      </div>
     </MySection>
   );
 };
