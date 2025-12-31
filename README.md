@@ -50,5 +50,5 @@ A modern parcel delivery management system where users can send parcels, pay sec
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/zap-ship.git
+git clone https://github.com/MahialamDev/zap-ship.git
 cd zap-ship
