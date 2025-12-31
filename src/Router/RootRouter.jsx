@@ -22,6 +22,7 @@ import AdminRouter from "./AdminRouter";
 import AllPayments from "../Pages/Dashboard/AllPayments/AllPayments";
 import LoadingAnimation from "../Components/Loader/LoadingAnimation/LoadingAnimation";
 import AssingRiders from "../Pages/Dashboard/AssingRiders/AssingRiders";
+import App from "../App";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
                 path: 'coverage',
                 Component: Coverage,
                 loader: () => fetch('../serviceCenters.json').then(res => res.json())
+            },
+            {
+                path: 'my-nav',
+                Component: App
             },
             {
                 path: 'rider',

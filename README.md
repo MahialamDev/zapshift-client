@@ -1,16 +1,54 @@
-# React + Vite
+# 🚀 Zap Ship
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern parcel delivery management system where users can send parcels, pay securely, and track delivery status. Admins can assign riders, and riders can update delivery status in real-time.  
 
-Currently, two official plugins are available:
+**Live Demo:** [https://zap-shipt-2025.web.app/](https://zap-shipt-2025.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📝 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### User
+- Send parcels with details (sender, receiver, package info, etc.)
+- Make payments securely via Stripe
+- Track parcel status in real-time
 
-## Expanding the ESLint configuration
+### Admin
+- View all parcel requests
+- Assign riders to deliver parcels
+- Monitor payments and deliveries
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Rider
+- Accept assigned parcels
+- Update delivery status (e.g., picked up, in transit, delivered)
+- Track assigned deliveries
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend:** React, Tailwind CSS, JavaScript
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Payment Gateway:** Stripe
+- **Deployment:** Firebase Hosting
+
+---
+
+## 🖥️ Screenshots
+
+![Home Page](./screenshots/home.png)
+![Parcel Details](./screenshots/parcel.png)
+![Admin Dashboard](./screenshots/admin.png)
+
+> Add your own screenshots inside a `screenshots` folder for better visualization.
+
+---
+
+## 💻 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/zap-ship.git
+cd zap-ship

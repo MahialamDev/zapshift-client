@@ -86,7 +86,7 @@ const SendParcel = () => {
 });
     }
     return (
-        <MySection>
+        <MySection className='pt-25 md:pt-30'>
             <MyContainer className='overflow-hidden  rounded-2xl'>
                 <div className='bg-base-200 w-full min-h-[90vh] rounded-2xl shadow-2xl p-4 md:px-20 md:py-15  border border-gray-100 '>
                     <h1 className='text-3xl md:text-5xl font-bold '>Send A Parcel</h1>

@@ -166,6 +166,7 @@ const Rider = () => {
                     placeholder="NID"
                   />
                 </div>
+                
                 {/* Division */}
                 <div>
                   <label className="block text-sm mb-1 font-semibold">

@@ -10,20 +10,20 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Hero = () => {
     return (
-        <MySection>
-             <MyContainer className="">
+        <MySection className='pt-25 md:pt-30'>
+             <MyContainer className="border">
                 <Carousel autoPlay={true} infiniteLoop={true}>
                 <div>
                     <img src={banner1Img} />
-                    <p className="legend">Legend 1</p>
+                 
                 </div>
                 <div>
                     <img src={banner2Img} />
-                    <p className="legend">Legend 1</p>
+                   
                 </div>
                 <div>
                     <img src={banner3Img} />
-                    <p className="legend">Legend 1</p>
+                   
                 </div>
             </Carousel>
             </MyContainer>

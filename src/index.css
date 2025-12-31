@@ -43,6 +43,9 @@
   --color-base-content: #FFFFFF; /* Default text color on dark background, readable on base-100/base-200 */
 }
 
+html{
+  scroll-behavior: smooth;
+}
 
 
 /* body{

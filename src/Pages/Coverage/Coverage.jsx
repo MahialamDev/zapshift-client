@@ -28,7 +28,7 @@ const Coverage = () => {
   };
 
   return (
-    <MySection>
+      <MySection className='pt-20'>
       <MyContainer>
         <h1 className="font-bold text-2xl md:text-4xl text-secondary my-5 md:my-10">
           We are available in 64 districts
@@ -52,7 +52,7 @@ const Coverage = () => {
           </div>
         </form>
 
-        <div>
+        <div className="z-10">
           <h1 className="text-2xl md:text-3xl font-semibold my-5">
             We deliver almost all over Bangladesh
           </h1>
@@ -62,7 +62,7 @@ const Coverage = () => {
               center={position}
               zoom={8}
               scrollWheelZoom={false}
-                          className="h-full"
+                          className="h-full z-10"
                           ref={mapRef}
             >
               <TileLayer

@@ -5,8 +5,10 @@ import { Link } from 'react-router';
 const Logo = () => {
     return (
         <Link className='flex items-end ' to='/'>         
-            <img src={logo} alt="" /> 
-            <h3 className='text-2xl -mx-2 font-semibold'>ZapShift</h3>
+            <div className='h-10 md:h-12'>
+                <img className='h-full' src={logo} alt="" /> 
+            </div>
+            <h3 className='text-xl md:text-2xl -mx-2 font-semibold'>ZapShift</h3>
         </Link>
     );
 };
